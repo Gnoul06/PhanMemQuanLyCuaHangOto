@@ -174,16 +174,20 @@ function renderCarCards(carsToRender, containerId) {
              data-bestseller="${car.is_best_seller ? '1' : (car.tag === 'HOT' ? '1' : '0')}">
             <div class="car-card h-100 d-flex flex-column">
                 <div class="car-thumb position-relative overflow-hidden">
-                    <img src="${car.image}" alt="${car.name}" class="w-100 object-fit-cover" style="height: 230px;">
-                    <span class="car-tag ${car.tagClass || 'tag-hot'} position-absolute top-0 end-0 m-3">${car.tag}</span>
-                    ${car.year ? `<span class="badge bg-dark bg-opacity-75 text-white position-absolute top-0 start-0 m-3 border border-secondary">Đời ${car.year}</span>` : ''}
+                    <a href="/cars/${car.id}" class="d-block w-100 h-100" title="Xem chi tiết ${car.name}">
+                        <img src="${car.image}" alt="${car.name}" class="w-100 object-fit-cover" style="height: 230px;">
+                    </a>
+                    <span class="car-tag ${car.tagClass || 'tag-hot'} position-absolute top-0 end-0 m-3 pe-none">${car.tag}</span>
+                    ${car.year ? `<span class="badge bg-dark bg-opacity-75 text-white position-absolute top-0 start-0 m-3 border border-secondary pe-none">Đời ${car.year}</span>` : ''}
                 </div>
                 <div class="car-body d-flex flex-column flex-grow-1 p-3">
                     <div class="d-flex justify-content-between align-items-center mb-1">
                         <span class="car-brand text-primary fw-bold small text-uppercase">${car.brand}</span>
                         <span class="badge bg-secondary bg-opacity-25 text-secondary small">${car.type}</span>
                     </div>
-                    <h3 class="car-title fs-5 fw-bold text-white mb-2">${car.name}</h3>
+                    <h3 class="car-title fs-5 fw-bold text-white mb-2">
+                        <a href="/cars/${car.id}" class="text-white text-decoration-none" title="Xem chi tiết ${car.name}">${car.name}</a>
+                    </h3>
                     <div class="car-specs text-secondary small mb-3 d-flex flex-wrap gap-2">
                         <span><i class="fa-solid fa-gas-pump text-primary me-1"></i> ${car.fuel}</span>
                         <span><i class="fa-solid fa-bolt text-warning me-1"></i> ${car.power}</span>

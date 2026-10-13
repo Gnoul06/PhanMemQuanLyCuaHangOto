@@ -40,9 +40,11 @@
                             </div>
                         </div>
                         <div class="col-lg-6 text-center position-relative">
-                            <img src="https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?q=80&w=1200&auto=format&fit=crop"
-                                class="img-fluid rounded-4 shadow-2xl border border-secondary border-opacity-25 hero-car-img"
-                                alt="Mercedes-Maybach S 680">
+                            <a href="{{ url('/cars/car-01') }}" title="Khám phá chi tiết Mercedes-Maybach S 680" class="d-inline-block">
+                                <img src="https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?q=80&w=1200&auto=format&fit=crop"
+                                    class="img-fluid rounded-4 shadow-2xl border border-secondary border-opacity-25 hero-car-img"
+                                    alt="Mercedes-Maybach S 680">
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -74,9 +76,11 @@
                             </div>
                         </div>
                         <div class="col-lg-6 text-center position-relative">
-                            <img src="https://images.unsplash.com/photo-1614162692292-7ac56d7f7f1e?q=80&w=1200&auto=format&fit=crop"
-                                class="img-fluid rounded-4 shadow-2xl border border-secondary border-opacity-25 hero-car-img"
-                                alt="Porsche Taycan Turbo S">
+                            <a href="{{ url('/cars/car-02') }}" title="Khám phá chi tiết Porsche Taycan Turbo S" class="d-inline-block">
+                                <img src="https://images.unsplash.com/photo-1614162692292-7ac56d7f7f1e?q=80&w=1200&auto=format&fit=crop"
+                                    class="img-fluid rounded-4 shadow-2xl border border-secondary border-opacity-25 hero-car-img"
+                                    alt="Porsche Taycan Turbo S">
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -108,9 +112,11 @@
                             </div>
                         </div>
                         <div class="col-lg-6 text-center position-relative">
-                            <img src="https://images.unsplash.com/photo-1555215695-3004980ad54e?q=80&w=1200&auto=format&fit=crop"
-                                class="img-fluid rounded-4 shadow-2xl border border-secondary border-opacity-25 hero-car-img"
-                                alt="BMW 740i Pure Excellence">
+                            <a href="{{ url('/cars/car-03') }}" title="Khám phá chi tiết BMW 740i Pure Excellence" class="d-inline-block">
+                                <img src="https://images.unsplash.com/photo-1555215695-3004980ad54e?q=80&w=1200&auto=format&fit=crop"
+                                    class="img-fluid rounded-4 shadow-2xl border border-secondary border-opacity-25 hero-car-img"
+                                    alt="BMW 740i Pure Excellence">
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -223,12 +229,14 @@
                  data-bestseller="{{ !empty($car['is_best_seller']) ? '1' : '0' }}">
                 <div class="car-card h-100 d-flex flex-column">
                     <div class="car-thumb position-relative overflow-hidden">
-                        <img src="{{ $car['image'] }}" alt="{{ $car['name'] }}" class="w-100 object-fit-cover" style="height: 230px;">
-                        <span class="car-tag {{ $car['tagClass'] ?? 'tag-hot' }} position-absolute top-0 end-0 m-3">
+                        <a href="{{ url('/cars/' . $car['id']) }}" class="d-block w-100 h-100" title="Xem chi tiết {{ $car['name'] }}">
+                            <img src="{{ $car['image'] }}" alt="{{ $car['name'] }}" class="w-100 object-fit-cover" style="height: 230px;">
+                        </a>
+                        <span class="car-tag {{ $car['tagClass'] ?? 'tag-hot' }} position-absolute top-0 end-0 m-3 pe-none">
                             {{ $car['tag'] }}
                         </span>
                         @if(!empty($car['year']))
-                        <span class="badge bg-dark bg-opacity-75 text-white position-absolute top-0 start-0 m-3 border border-secondary">
+                        <span class="badge bg-dark bg-opacity-75 text-white position-absolute top-0 start-0 m-3 border border-secondary pe-none">
                             Đời {{ $car['year'] }}
                         </span>
                         @endif
@@ -238,7 +246,9 @@
                             <span class="car-brand text-primary fw-bold small text-uppercase">{{ $car['brand'] }}</span>
                             <span class="badge bg-secondary bg-opacity-25 text-secondary small">{{ $car['type'] }}</span>
                         </div>
-                        <h3 class="car-title fs-5 fw-bold text-white mb-2">{{ $car['name'] }}</h3>
+                        <h3 class="car-title fs-5 fw-bold text-white mb-2">
+                            <a href="{{ url('/cars/' . $car['id']) }}" class="text-white text-decoration-none" title="Xem chi tiết {{ $car['name'] }}">{{ $car['name'] }}</a>
+                        </h3>
                         <div class="car-specs text-secondary small mb-3 d-flex flex-wrap gap-2">
                             <span><i class="fa-solid fa-gas-pump text-primary me-1"></i> {{ $car['fuel'] }}</span>
                             <span><i class="fa-solid fa-bolt text-warning me-1"></i> {{ $car['power'] }}</span>
